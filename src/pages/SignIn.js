@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { logoApps } from "../assets";
 
 class SignIn extends Component {
   constructor(props) {
@@ -12,8 +13,8 @@ class SignIn extends Component {
 
   render() {
     return (
-      <section className="flex justify-center items-center h-screen">
-        <p>Signin</p>
+      <section className="flex flex-col justify-center items-center h-screen">
+        <img src={logoApps} alt="Logo Unico Apps" />
       </section>
     );
   }

@@ -1,0 +1,11 @@
+export const build = require("./icons/build.svg");
+export const cardGiftcard = require("./icons/card_giftcard.svg");
+export const cart = require("./icons/cart.svg");
+export const category = require("./icons/category.svg");
+export const dataSetting = require("./icons/data_setting.svg");
+export const home = require("./icons/home.svg");
+export const identity = require("./icons/identity.svg");
+export const infinity = require("./icons/infinity.svg");
+export const layers = require("./icons/layers.svg");
+export const logoApps = require("./icons/logo_apps.png");
+export const logo = require("./icons/logo.png");
