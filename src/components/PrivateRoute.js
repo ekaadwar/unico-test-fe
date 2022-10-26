@@ -1,13 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import ButtonMenu from "./ButtonMenu";
 
 const PrivateRoute = ({ element, auth, priv = true }) => {
   if (priv !== false) {
-    if (auth.token !== null) {
+    if (auth.token == null) {
       console.log("token detected");
       console.log(auth.token);
-      return element;
+      return (
+        <>
+          {element}
+          <ButtonMenu />
+        </>
+      );
     } else {
       return <Redirect to="/signin" />;
     }

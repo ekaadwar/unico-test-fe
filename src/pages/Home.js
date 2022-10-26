@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { authSignOut } from "../redux/actions/auth";
 import { logoApps } from "../assets";
+import HomeHeader from "../components/HomeHeader";
+import ButtonMenu from "../components/ButtonMenu";
 
 class Home extends Component {
   render() {
     return (
       <section className="flex flex-col justify-center items-center h-screen">
+        <HomeHeader />
         <img src={logoApps} alt="Logo Unico Apps" />
         <button onClick={this.props.authSignOut}>Sign Out</button>
       </section>
