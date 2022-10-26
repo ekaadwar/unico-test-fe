@@ -20,6 +20,14 @@ const auth = (state = initialState, action) => {
         msg: action.payload,
       };
     }
+    case "AUTH_CLEAR": {
+      return {
+        ...state,
+        token: null,
+        userId: "",
+        msg: "",
+      };
+    }
     default: {
       return {
         ...state,
