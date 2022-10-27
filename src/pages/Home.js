@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { authSignOut } from "../redux/actions/auth";
 import HomeHeader from "../components/HomeHeader";
 import Container from "../components/Container";
+import Modal from "../components/Modal";
+
+import { connect } from "react-redux";
+import { authSignOut } from "../redux/actions/auth";
 import {
   MdChevronLeft as Back,
   MdCancel as Cancel,
@@ -17,13 +19,24 @@ import {
 import { TbTool as Tool } from "react-icons/tb";
 import { IoIosSquare as Ceramic } from "react-icons/io";
 import { IndicatorDot } from "../components/Dot";
-import { cardGiftcard, cart } from "../assets";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      deleteModal: false,
+    };
+  }
+
+  onDelete = () => {
+    this.setState({ deleteModal: true });
+  };
+
   render() {
     return (
       <section className="scroll-indicator-none flex flex-col h-screen pt-20 overflow-y-auto">
-        <HomeHeader />
+        <HomeHeader buttonFunction={this.onDelete} />
         <Container
           content={
             <div className="space-y-10 pb-24">
@@ -109,6 +122,24 @@ class Home extends Component {
             </div>
           }
         />
+        {this.state.deleteModal === true && (
+          <Modal
+            setOpenModal={() => this.setState({ deleteModal: false })}
+            content={
+              <div className="flex flex-col items-start h-32 px-2 text-gray-500 font-bold">
+                <div className="flex-1 space-y-5">
+                  <Link to="/list">
+                    <p>User List</p>
+                  </Link>
+                  <button onClick={() => this.props.authSignOut()}>
+                    <p>Log Out</p>
+                  </button>
+                </div>
+                <p className="text-xs">v1.0.0</p>
+              </div>
+            }
+          />
+        )}
       </section>
     );
   }

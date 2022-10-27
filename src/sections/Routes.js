@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import PrivateRoute from "../components/PrivateRoute";
 import SignIn from "../pages/SignIn";
 import Profile from "../pages/Profile";
+import List from "../pages/List";
 import GeneralRoute from "../components/GeneralRoute";
 
 const Routes = () => {
@@ -24,6 +25,13 @@ const Routes = () => {
         path="/profile"
         render={(props) => (
           <PrivateRoute title="My Account" element={<Profile {...props} />} />
+        )}
+      />
+
+      <Route
+        path="/list"
+        render={(props) => (
+          <PrivateRoute title="User List" element={<List {...props} />} />
         )}
       />
     </Switch>
