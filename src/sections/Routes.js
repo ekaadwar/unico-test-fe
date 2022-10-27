@@ -21,7 +21,7 @@ const Routes = () => {
 
       <Route
         path="/signin"
-        render={(props) => <AuthRoute element={<SignIn {...props} />} />}
+        render={(props) => <AuthRoute signin element={<SignIn {...props} />} />}
       />
 
       <Route
@@ -34,7 +34,7 @@ const Routes = () => {
         render={(props) => (
           <PrivateRoute
             title="My Account"
-            // backPath="/"
+            backPath="/"
             element={<Profile {...props} />}
           />
         )}
@@ -45,7 +45,7 @@ const Routes = () => {
         render={(props) => (
           <PrivateRoute
             title="User List"
-            // backPath="/"
+            backPath="/"
             element={<List {...props} />}
           />
         )}

@@ -3,8 +3,8 @@ import Container from "../components/Container";
 import { connect } from "react-redux";
 import { logoApps } from "../assets";
 import { InputAuth } from "../components/Input";
-import { SmallPrimaryButton } from "../components/Button";
-import { Redirect } from "react-router-dom";
+import { PrimaryButton } from "../components/Button";
+import { Link } from "react-router-dom";
 
 class SignIn extends Component {
   constructor(props) {
@@ -32,13 +32,17 @@ class SignIn extends Component {
                 <InputAuth label={"Password"} type={"password"} />
                 <div className="flex justify-between items-center w-full">
                   <p className="text-blue-500 font-bold">Forgot Password</p>
-                  <SmallPrimaryButton onClick={this.login} content={"Log In"} />
+                  <div>
+                    <PrimaryButton onClick={this.login} content={"Log In"} />
+                  </div>
                 </div>
               </div>
 
               <div className="text-center">
                 <p className="text-gray-500">Don't have an account?</p>
-                <p className="text-blue-500 font-bold">Register</p>
+                <Link to="signup">
+                  <p className="text-blue-500 font-bold">Register</p>
+                </Link>
               </div>
             </div>
           }
