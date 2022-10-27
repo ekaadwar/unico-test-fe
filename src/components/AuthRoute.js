@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 const AuthRoute = ({ element, auth, priv = true }) => {
   if (priv !== false) {
     if (auth.token !== null) {
-      return <Redirect to="/profile" />;
+      return <Redirect to="/" />;
     } else {
       return element;
     }

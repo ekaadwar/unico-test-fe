@@ -6,9 +6,9 @@ import Header from "./Header";
 
 const PrivateRoute = ({
   home = false,
+  backPath = "/",
   title = "",
   element,
-  auth,
   priv = true,
 }) => {
   if (priv !== false) {
@@ -20,7 +20,7 @@ const PrivateRoute = ({
       }
       return (
         <>
-          {!home && <Header title={title} />}
+          {!home && <Header title={title} path={backPath} />}
           {element}
           <ButtonMenu />
         </>

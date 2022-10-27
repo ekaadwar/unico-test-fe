@@ -25,18 +25,22 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      deleteModal: false,
+      MenuModal: false,
     };
   }
 
-  onDelete = () => {
-    this.setState({ deleteModal: true });
+  onMenu = () => {
+    this.setState({ MenuModal: true });
+  };
+
+  signOut = () => {
+    this.props.history.push("/signin");
   };
 
   render() {
     return (
       <section className="scroll-indicator-none flex flex-col h-screen pt-20 overflow-y-auto">
-        <HomeHeader buttonFunction={this.onDelete} />
+        <HomeHeader buttonFunction={this.onMenu} />
         <Container
           content={
             <div className="space-y-10 pb-24">
@@ -122,16 +126,16 @@ class Home extends Component {
             </div>
           }
         />
-        {this.state.deleteModal === true && (
+        {this.state.MenuModal === true && (
           <Modal
-            setOpenModal={() => this.setState({ deleteModal: false })}
+            setOpenModal={() => this.setState({ MenuModal: false })}
             content={
               <div className="flex flex-col items-start h-32 px-2 text-gray-500 font-bold">
                 <div className="flex-1 space-y-5">
                   <Link to="/list">
                     <p>User List</p>
                   </Link>
-                  <button onClick={() => this.props.authSignOut()}>
+                  <button onClick={this.signOut}>
                     <p>Log Out</p>
                   </button>
                 </div>
