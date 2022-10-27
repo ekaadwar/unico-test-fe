@@ -37,7 +37,27 @@
   }
 }
 
+.scroll-indicator-none::-webkit-scrollbar {
+  width: 0;
+}
+
 .shadow-top {
   box-shadow: rgba(0, 0, 0, 0.1) 0px -4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px -2px 4px -1px;
+}
+
+.back-container:hover {
+  background-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.2)
+  );
+}
+
+.next-container:hover {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.2)
+  );
 }

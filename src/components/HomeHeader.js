@@ -6,7 +6,7 @@ import { logoApps } from "../assets";
 
 const HomeHeader = () => {
   return (
-    <header className="absolute top-0 z-50 w-full h-16">
+    <header className="absolute top-0 z-50 w-full h-16 bg-white">
       <Container
         content={
           <div className="grid grid-cols-3 h-full ">
