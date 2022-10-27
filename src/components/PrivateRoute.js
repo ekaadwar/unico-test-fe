@@ -13,7 +13,7 @@ const PrivateRoute = ({
   priv = true,
 }) => {
   if (priv !== false) {
-    if (auth.token == null) {
+    if (auth.token !== null) {
       console.log("token detected");
       console.log(auth.token);
       if (home) {

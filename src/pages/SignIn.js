@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import Container from "../components/Container";
 import { connect } from "react-redux";
 import { logoApps } from "../assets";
+import { FailAlert } from "../components/Alert";
 import { InputAuth } from "../components/Input";
 import { PrimaryButton } from "../components/Button";
 import { Link } from "react-router-dom";
+import { authSignin } from "../redux/actions/auth";
 
 class SignIn extends Component {
   constructor(props) {
@@ -12,12 +14,24 @@ class SignIn extends Component {
     this.state = {
       email: "",
       password: "",
+      alert: false,
+      message: "",
     };
   }
 
-  login = () => {
-    console.log("login");
-    this.props.history.push("/");
+  signin = () => {
+    const data = {
+      email: this.state.email,
+      password: this.state.password,
+      navigate: this.props.history,
+    };
+
+    if (data.email && data.password) {
+      this.setState({ errAlert: "" });
+      this.props.authSignin(data);
+    } else {
+      this.setState({ alert: true, message: "The field cannot be empty." });
+    }
   };
 
   render() {
@@ -28,12 +42,21 @@ class SignIn extends Component {
             <div className="flex flex-col justify-center items-center h-screen space-y-10">
               <img src={logoApps} alt="Logo Unico Apps" />
               <div className="w-full space-y-5">
-                <InputAuth label={"Email"} />
-                <InputAuth label={"Password"} type={"password"} />
+                <InputAuth
+                  label={"Email"}
+                  value={this.state.email}
+                  onChange={(e) => this.setState({ email: e.target.value })}
+                />
+                <InputAuth
+                  label={"Password"}
+                  type={"password"}
+                  value={this.state.password}
+                  onChange={(e) => this.setState({ password: e.target.value })}
+                />
                 <div className="flex justify-between items-center w-full">
                   <p className="text-blue-500 font-bold">Forgot Password</p>
                   <div>
-                    <PrimaryButton onClick={this.login} content={"Log In"} />
+                    <PrimaryButton onClick={this.signin} content={"Log In"} />
                   </div>
                 </div>
               </div>
@@ -47,9 +70,20 @@ class SignIn extends Component {
             </div>
           }
         />
+        {this.state.alert && (
+          <FailAlert
+            msg={[this.state.message]}
+            type="danger"
+            setOpenAlert={() => this.setState({ alert: false, message: "" })}
+          />
+        )}
       </section>
     );
   }
 }
 
-export default connect()(SignIn);
+const mapDispatchToProps = {
+  authSignin,
+};
+
+export default connect(null, mapDispatchToProps)(SignIn);
