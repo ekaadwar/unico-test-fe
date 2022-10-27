@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { SlHome as Home } from "react-icons/sl";
 import {
   MdPermIdentity as Account,
@@ -7,6 +8,12 @@ import {
 import PartContainer from "./PartContainer";
 
 const ButtonMenu = () => {
+  let history = useHistory();
+
+  const changePage = (path) => {
+    history.push(path);
+  };
+
   return (
     <div className="shadow-top absolute flex items-center bottom-0 h-20 w-full bg-white">
       <PartContainer
@@ -20,7 +27,10 @@ const ButtonMenu = () => {
               <Cart size={30} />
               <p className="text-sm">Cart</p>
             </button>
-            <button className="flex flex-col items-center text-gray-500">
+            <button
+              onClick={() => changePage("/profile")}
+              className="flex flex-col items-center text-gray-500"
+            >
               <Account size={30} />
               <p className="text-sm">Account</p>
             </button>
