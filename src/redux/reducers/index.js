@@ -4,6 +4,7 @@ import { persistReducer } from "redux-persist";
 import { globalReducer } from "./global";
 
 import auth from "./auth";
+import profile from "./profile";
 import users from "./users";
 
 const persistAuth = {
@@ -15,6 +16,7 @@ const reducer = combineReducers({
   auth: persistReducer(persistAuth, auth),
   globalReducer,
   users,
+  profile,
 });
 
 export default reducer;

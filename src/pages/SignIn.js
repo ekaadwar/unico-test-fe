@@ -75,6 +75,7 @@ class SignIn extends Component {
             msg={[this.state.message]}
             type="danger"
             setOpenAlert={() => this.setState({ alert: false, message: "" })}
+            btnAction={() => this.setState({ alert: false, message: "" })}
           />
         )}
       </section>
