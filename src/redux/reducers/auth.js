@@ -14,6 +14,12 @@ const auth = (state = initialState, action) => {
         msg: action.payload.message,
       };
     }
+    case "AUTH_REGISTER": {
+      return {
+        ...state,
+        msg: action.payload,
+      };
+    }
     case "AUTH_FAILED": {
       return {
         ...state,

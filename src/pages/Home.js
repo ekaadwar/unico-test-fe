@@ -34,6 +34,7 @@ class Home extends Component {
   };
 
   signOut = () => {
+    this.props.authSignOut();
     this.props.history.push("/signin");
   };
 
