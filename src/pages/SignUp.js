@@ -23,10 +23,6 @@ class SignUp extends React.Component {
     };
   }
 
-  componentDidUpdate() {
-    console.log(this.state.message);
-  }
-
   closeAlert = () => {
     this.setState({ message: [] });
   };
@@ -39,8 +35,6 @@ class SignUp extends React.Component {
       password: this.state.password,
       repassword: this.state.repassword,
     };
-
-    console.log(data);
 
     if (
       data.firstName &&

@@ -14,11 +14,6 @@ const PrivateRoute = ({
 }) => {
   if (priv !== false) {
     if (auth.token !== null) {
-      console.log("token detected");
-      console.log(auth.token);
-      if (home) {
-        console.log("home");
-      }
       return (
         <>
           {!home && <Header title={title} path={backPath} />}

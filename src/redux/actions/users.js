@@ -9,7 +9,6 @@ export const getUsers =
     dispatch({ type: "SET_LOADING", payload: true });
     try {
       const { data } = await http(token).get(`${URL}/users`);
-      console.log(data);
       dispatch({
         type: "USERS_GET",
         payload: data,

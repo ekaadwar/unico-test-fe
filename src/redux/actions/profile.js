@@ -13,7 +13,6 @@ export const getProfile = (token) => async (dispatch) => {
     });
     dispatch({ type: "SET_LOADING", payload: false });
   } catch (err) {
-    console.log(err);
     dispatch({
       type: "ERROR_GET_PROFILE",
       payload: err.response.data.message,

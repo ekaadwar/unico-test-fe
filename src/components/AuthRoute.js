@@ -4,7 +4,6 @@ import { Redirect } from "react-router-dom";
 import Header from "./Header";
 
 const AuthRoute = ({ element, signin = false, auth, priv = true }) => {
-  console.log(signin);
   if (priv !== false) {
     if (auth.token !== null) {
       return <Redirect to="/" />;
