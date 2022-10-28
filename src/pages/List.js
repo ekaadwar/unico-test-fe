@@ -18,7 +18,7 @@ class List extends React.Component {
         content={
           <Container
             content={
-              <div className="space-y-5 pb-24">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 pb-24">
                 {this.props.users.data.map((item, id) => (
                   <div key={id}>
                     <ListCard

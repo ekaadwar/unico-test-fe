@@ -19,7 +19,10 @@ const ButtonMenu = () => {
       <PartContainer
         content={
           <div className=" flex flex-row justify-between items-center">
-            <button className="flex flex-col items-center text-gray-500">
+            <button
+              onClick={() => changePage("/")}
+              className="flex flex-col items-center text-gray-500"
+            >
               <Home size={30} />
               <p className="text-sm">Home</p>
             </button>
