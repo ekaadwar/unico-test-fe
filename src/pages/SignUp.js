@@ -77,84 +77,86 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <Canvas
-        content={
-          <Container
-            content={
-              <div>
-                <Header title="Form Register" path="/signin" />
-                <div className="space-y-5">
-                  <InputAuth
-                    label={"First Name"}
-                    value={this.state.firstName}
-                    onChange={(e) =>
-                      this.setState({ firstName: e.currentTarget.value })
-                    }
-                  />
-                  <InputAuth
-                    label={"Last Name"}
-                    value={this.state.lastName}
-                    onChange={(e) =>
-                      this.setState({ lastName: e.currentTarget.value })
-                    }
-                  />
-                  <InputAuth
-                    label={"Email"}
-                    value={this.state.email}
-                    onChange={(e) =>
-                      this.setState({ email: e.currentTarget.value })
-                    }
-                  />
-                  <InputAuth
-                    label={"Password"}
-                    type={"password"}
-                    value={this.state.password}
-                    onChange={(e) =>
-                      this.setState({ password: e.currentTarget.value })
-                    }
-                  />
-                  <InputAuth
-                    label={"Confirm Password"}
-                    type={"password"}
-                    value={this.state.repassword}
-                    onChange={(e) =>
-                      this.setState({ repassword: e.currentTarget.value })
-                    }
-                  />
-                  <PrimaryButton
-                    onClick={this.submit}
-                    content={<p className="text-center">Register</p>}
-                  />
+      <section className="background-auth flex md:justify-end h-screen overflow-y-auto scroll-indicator-none">
+        <div className="relative w-full md:w-1/2 flex justify-center bg-white">
+          <div className="max-w-md h-full">
+            <Container
+              content={
+                <div className="py-24">
+                  <Header title="Form Register" path="/signin" />
+                  <div className="space-y-5">
+                    <InputAuth
+                      label={"First Name"}
+                      value={this.state.firstName}
+                      onChange={(e) =>
+                        this.setState({ firstName: e.currentTarget.value })
+                      }
+                    />
+                    <InputAuth
+                      label={"Last Name"}
+                      value={this.state.lastName}
+                      onChange={(e) =>
+                        this.setState({ lastName: e.currentTarget.value })
+                      }
+                    />
+                    <InputAuth
+                      label={"Email"}
+                      value={this.state.email}
+                      onChange={(e) =>
+                        this.setState({ email: e.currentTarget.value })
+                      }
+                    />
+                    <InputAuth
+                      label={"Password"}
+                      type={"password"}
+                      value={this.state.password}
+                      onChange={(e) =>
+                        this.setState({ password: e.currentTarget.value })
+                      }
+                    />
+                    <InputAuth
+                      label={"Confirm Password"}
+                      type={"password"}
+                      value={this.state.repassword}
+                      onChange={(e) =>
+                        this.setState({ repassword: e.currentTarget.value })
+                      }
+                    />
+                    <PrimaryButton
+                      onClick={this.submit}
+                      content={<p className="text-center">Register</p>}
+                    />
+                  </div>
+
+                  {this.state.alert && (
+                    <FailAlert
+                      msg={[this.state.message]}
+                      type="danger"
+                      setOpenAlert={() =>
+                        this.setState({ alert: false, message: [] })
+                      }
+                      btnAction={() =>
+                        this.setState({ alert: false, message: [] })
+                      }
+                    />
+                  )}
+
+                  {this.state.success && (
+                    <FailAlert
+                      msg={[this.state.message]}
+                      type="success"
+                      setOpenAlert={() =>
+                        this.setState({ success: false, message: [] })
+                      }
+                      btnAction={() => this.props.history.push("/signin")}
+                    />
+                  )}
                 </div>
-
-                {this.state.alert && (
-                  <FailAlert
-                    msg={[this.state.message]}
-                    type="danger"
-                    setOpenAlert={() =>
-                      this.setState({ alert: false, message: [] })
-                    }
-                    btnAction={() =>
-                      this.setState({ alert: false, message: [] })
-                    }
-                  />
-                )}
-
-                {this.state.success && (
-                  <FailAlert
-                    msg={[this.state.message]}
-                    type="success"
-                    setOpenAlert={() =>
-                      this.setState({ success: false, message: [] })
-                    }
-                    btnAction={() => this.props.history.push("/signin")}
-                  />
-                )}
-              </div>
-            }
-          />
-        }
-      />
+              }
+            />
+          </div>
+        </div>
+      </section>
     );
   }
 }
